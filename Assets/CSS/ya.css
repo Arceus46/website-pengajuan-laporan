@@ -1,0 +1,324 @@
+/* === RESET DASAR === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #f5f6fa;
+  overflow-x: hidden;
+}
+
+/* === STRUKTUR UTAMA === */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 220px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.sidebar ul {
+  list-style: none;
+  flex-grow: 1;
+}
+.sidebar ul li {
+  margin: 15px 0;
+}
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+.sidebar ul li a:hover {
+  background-color: #34495e;
+}
+
+/* === TOMBOL LOGOUT === */
+.logout-section {
+  margin-top: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  transition: 0.3s;
+}
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* === KONTEN UTAMA === */
+.main-content {
+  flex: 1;
+  padding: 25px;
+}
+
+/* === CARD DASHBOARD === */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+.card h5 { color: #555; margin-bottom: 5px; }
+.card h2 { color: #2c3e50; }
+.card.blue { border-top: 4px solid #3498db; }
+.card.yellow { border-top: 4px solid #f1c40f; }
+.card.green { border-top: 4px solid #2ecc71; }
+.card.cyan { border-top: 4px solid #1abc9c; }
+
+/* === TABEL === */
+.table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+table th { background: #ecf0f1; }
+
+/* === BADGE === */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: white;
+}
+.badge.warning { background: #f1c40f; }
+.badge.success { background: #2ecc71; }
+.badge.secondary { background: #95a5a6; }
+
+/* === HEADER TABLE + FILTER === */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#filterStatus {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #fff;
+  color: #2c3e50;
+}
+.btn {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.btn:hover { background-color: #16a085; }
+
+/* === FIX: Hapus garis bawah link di tombol Cetak === */
+a#btnCetak {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+}
+
+/* === TOMBOL ANIMASI MODE GELAP === */
+#themeToggle.pulse {
+  animation: pulseEffect 0.5s ease;
+}
+
+@keyframes pulseEffect {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+  50% { transform: scale(1.15); box-shadow: 0 0 10px rgba(26, 188, 156, 0.5); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+}
+
+/* === RESPONSIF MOBILE === */
+@media (max-width: 768px) {
+  .container { flex-direction: column; }
+  .sidebar { width: 100%; text-align: center; }
+  .main-content { padding: 15px; }
+
+  .cards { grid-template-columns: 1fr; gap: 15px; }
+  .card { text-align: center; padding: 15px; }
+
+  .table-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  #filterStatus, #btnCetak {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* === MODE GELAP TOTAL === */
+body.dark { background-color: #1a1d21; color: #ecf0f1; }
+body.dark .card { background-color: #24282c; }
+body.dark .table-section { background-color: #24282c; color: #eaeaea; }
+body.dark table th { background-color: #343a40; color: #f2f2f2; }
+body.dark table td { border-bottom: 1px solid #444; }
+body.dark .btn { background-color: #16a085; color: #fff; border: 1px solid #1abc9c; }
+body.dark select { background-color: #2b2f33; color: #eaeaea; border: 1px solid #444; }
+
+body.dark .card h2,
+body.dark .card h5 {
+  color: #ffffff;
+}
+
+/* Select filter jadi gelap */
+body.dark #filterStatus {
+  background-color: #2b2f33;
+  color: #eaeaea;
+  border: 1px solid #444;
+}
+/* === FORM INPUT KELUHAN === */
+
+.form-card {
+    width: 100%;
+    text-align: left;
+}
+
+.form-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-top: 12px;
+    display: block;
+    color: #34495e;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: 0.2s ease;
+    font-size: 14px;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    background: #fff;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.4);
+}
+
+.form-textarea {
+    min-height: 130px;
+    resize: none;
+}
+
+.form-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* === DARK MODE === */
+body.dark .form-input,
+body.dark .form-textarea {
+    background: #2b2f33;
+    border: 1px solid #444;
+    color: #ecf0f1;
+}
+
+body.dark .form-input:focus,
+body.dark .form-textarea:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 0 5px rgba(26,188,156,0.4);
+}
+
+body.dark .form-title,
+body.dark .form-label {
+    color: #ecf0f1;
+}
+/* MODE TERANG (DEFAULT) */
+a {
+    text-decoration: none;
+    color: black; /* warna link saat normal */
+}
+
+/* MODE GELAP */
+body.dark a {
+    text-decoration: none;
+    color: #ecf0f1; /* warna link saat dark mode */
+}
+.wlee {
+    width: 50%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: 0.2s ease;
+    font-size: 14px;
+}
