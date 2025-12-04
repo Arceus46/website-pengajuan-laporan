@@ -1,0 +1,162 @@
+/* Layout dasar */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #1e3a8a;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Konten utama */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card.blue { background: #2563eb; }
+.card.yellow { background: #f59e0b; }
+.card.green { background: #16a34a; }
+.card.cyan { background: #06b6d4; }
+
+/* Tabel */
+.table-section {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.table-section th, .table-section td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Badge */
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.badge.warning { background: #f59e0b; }
+.badge.success { background: #16a34a; }
+.badge.secondary { background: #6b7280; }
+
+/* RESPONSIVE TANPA BURGER */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar ul li {
+    margin: 0;
+  }
+
+  .sidebar ul li a {
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
